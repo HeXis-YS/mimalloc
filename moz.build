@@ -22,12 +22,8 @@ SOURCES += [
     'src/stats.c',
 ]
 
-# DEFINES['MI_USE_ENVIRON'] = 0
-# DEFINES['MI_POISON'] = 1
-# DEFINES['MI_DEBUG_FREED'] = 0xE5
-# DEFINES['MI_DEBUG_UNINIT'] = 0xE4
-# DEFINES['MI_STAT'] = 1
-# DEFINES['MI_SECURE'] = 1
+DEFINES['MI_SHARED_LIB'] = True
+DEFINES['MI_SHARED_LIB_EXPORT'] = True
 
 EXPORTS.mimalloc += [
     "include/mimalloc.h",
