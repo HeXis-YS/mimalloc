@@ -1,0 +1,46 @@
+# -*- Mode: python; indent-tabs-mode: nil; tab-width: 40 -*-
+# vim: set filetype=python:
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+SOURCES += [
+    'src/alloc-aligned.c',
+    'src/alloc-posix.c',
+    'src/alloc.c',
+    'src/arena.c',
+    'src/bitmap.c',
+    'src/heap.c',
+    'src/init.c',
+    'src/options.c',
+    'src/os.c',
+    'src/page.c',
+    'src/prim/prim.c',
+    'src/random.c',
+    'src/segment-map.c',
+    'src/segment.c',
+    'src/stats.c',
+]
+
+# DEFINES['MI_USE_ENVIRON'] = 0
+# DEFINES['MI_POISON'] = 1
+# DEFINES['MI_DEBUG_FREED'] = 0xE5
+# DEFINES['MI_DEBUG_UNINIT'] = 0xE4
+# DEFINES['MI_STAT'] = 1
+# DEFINES['MI_SECURE'] = 1
+
+EXPORTS.mimalloc += [
+    "include/mimalloc.h",
+    "include/mimalloc/atomic.h",
+    "include/mimalloc/types.h",
+]
+
+Library('memory-mimalloc')
+
+LIBRARY_DEFINES["MOZ_HAS_MOZGLUE"] = True
+
+FINAL_LIBRARY = 'memory'
+
+LOCAL_INCLUDES += [
+    'include',
+]
