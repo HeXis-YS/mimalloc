@@ -4,7 +4,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-SOURCES += [
+UNIFIED_SOURCES += [
     'src/alloc-aligned.c',
     'src/alloc-posix.c',
     'src/alloc.c',
@@ -12,6 +12,7 @@ SOURCES += [
     'src/bitmap.c',
     'src/heap.c',
     'src/init.c',
+    'src/libc.c',
     'src/options.c',
     'src/os.c',
     'src/page.c',
